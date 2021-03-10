@@ -17,3 +17,33 @@ Client Machine : My Laptop
 
 I prepared the Web Server by adding three new volumes of equal size and partition them as shown
 
+![](https://github.com/drazen-dee28/Web-Solution-With-Wordpress/blob/main/img/partition.jpg)
+
+
+I created three physical volumes as follows
+
+`sudo pvcreate /dev/xvdf1 /dev/xvdg1 /devxvdh1`
+
+I created a volume group named `webdata-vg` from the three physical volumes as follows
+
+`sudo vgcreate webdata-vg /dev/xvdf1 /dev/xvdg1 /dev/xvdh1`
+
+I created two logical volumes named `app-lv`(storage of website data) and `logs-lv`(for logs storage) as follows
+
+ `sudo lvcreate -n app-lv -L 14G webdata-vg`
+  
+`sudo lvcreate -n logs-lv -L 14G webdata-vg`
+  
+I checked the setup with `lsblk` command
+
+![](https://github.com/drazen-dee28/Web-Solution-With-Wordpress/blob/main/img/check.jpg)
+
+
+I formatted the logical volume with Ext4 filesystem
+
+`sudo mkfs.ext4 /dev/webdata-vg/app-lv`
+
+
+I createed `/var/www/html` directory to store website files
+
+`sudo mkdir -p /var/www/html`
