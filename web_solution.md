@@ -44,6 +44,16 @@ I formatted the logical volume with Ext4 filesystem
 `sudo mkfs.ext4 /dev/webdata-vg/app-lv`
 
 
-I createed `/var/www/html` directory to store website files
+I created `/var/www/html` directory to store website files
 
 `sudo mkdir -p /var/www/html`
+
+
+I created `/home/recovery/logs` directory to store backup of log data
+
+`sudo mkdir -p /home/recovery/logs`
+
+
+I mounted /var/www/html on the `app` logical volume as shown
+
+`sudo mount /dev/webdata-vg/app-lv /var/www/html`
