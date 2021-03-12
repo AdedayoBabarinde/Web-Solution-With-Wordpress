@@ -57,3 +57,18 @@ I created `/home/recovery/logs` directory to store backup of log data
 I mounted /var/www/html on the `app` logical volume as shown
 
 `sudo mount /dev/webdata-vg/app-lv /var/www/html`
+
+
+I backed up the contents of `/var/log` directory before mounting on it as shown
+
+`sudo rsync -av /var/log /home/recovery/logs`
+
+
+I mounted the /var/log on the logs logical volume 
+
+`sudo mount /dev/webdata-vg/logs-lv /var/log`
+
+
+Since mounting will delete the contents of `/var/log` ,i copied back the backed up version
+
+`sudo rsync -av /home/recovery/logs/log/ /var/log`
