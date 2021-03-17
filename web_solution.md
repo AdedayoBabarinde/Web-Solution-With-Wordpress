@@ -72,3 +72,32 @@ I mounted the /var/log on the logs logical volume
 Since mounting will delete the contents of `/var/log` ,i copied back the backed up version
 
 `sudo rsync -av /home/recovery/logs/log/ /var/log`
+
+
+To ensure that the mounts are persistent, i edited the `/etc/fstab` config file using the UUID
+
+![](https://github.com/drazen-dee28/Web-Solution-With-Wordpress/blob/main/img/mountcheck.jpg)
+
+
+I checked the mounts as shown
+![](https://github.com/drazen-dee28/Web-Solution-With-Wordpress/blob/main/img/checkmount.jpg)
+
+
+- Preparing Database Server
+
+I repeated the same steps like i did for webserver above. I repaced the  `The app-lv` logical volume with `db-lv`
+
+
+Imounted the `db-lv` on `/db` directory
+
+  
+I added three new volumes of equal size and partition them as shown
+
+
+
+
+
+
+
+Credits
+
