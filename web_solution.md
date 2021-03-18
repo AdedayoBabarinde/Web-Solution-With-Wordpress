@@ -85,13 +85,25 @@ I checked the mounts as shown
 
 - Preparing Database Server
 
-I repeated the same steps like i did for webserver above. I repaced the  `The app-lv` logical volume with `db-lv`
+I repeated the same steps like i did for webserver above. I repaced the  `The app-lv` logical volume with `db-lv` and volume group is vg-database
+
+I created a directory called `/db`
+
+I mounted the `db-lv`  logical volume on `/db` directory
+
+`sudo mount /dev/vg-database/db-lv /db`
+
+I checked the mounts as shown
+![](https://github.com/drazen-dee28/Web-Solution-With-Wordpress/blob/main/img/checkdb.jpg)
 
 
-Imounted the `db-lv` on `/db` directory
-
+To ensure that the mounts are persistent, i edited the `/etc/fstab` config file using the UUID as executed on the webserver.
   
-I added three new volumes of equal size and partition them as shown
+- Installation of Wordpress on the Webserver
+
+I installed Apache(Httpd) and other dependencies as shown
+
+`sudo yum -y install wget httpd php php-mysqlnd php-fpm php-json`
 
 
 
