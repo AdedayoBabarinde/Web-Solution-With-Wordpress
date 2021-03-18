@@ -106,6 +106,29 @@ I installed Apache(Httpd) and other dependencies as shown
 `sudo yum -y install wget httpd php php-mysqlnd php-fpm php-json`
 
 
+I installed the remaining `php` dependencies 
+
+`sudo dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm`
+
+`sudo dnf install dnf-utils http://rpms.remirepo.net/enterprise/remi-release-8.rpm`
+
+`sudo dnf module list php Remi's Modular repository for Enterprise Linux 8 -x86_64`
+
+After installing the dependencies , i reset and enbled `php` as shown
+
+`sudo dnf module reset php`
+
+`sudo dnf module enable php:remi-7.4`
+
+
+I installed `php` Fast Process Manager
+
+`sudo dnf install php php-opcache php-gd php-curl php-mysqlnd`
+
+I started and enabled the `php` Fast Process Manager
+
+`sudo systemctl start php-fpm`
+`sudo systemctl enable php-fpm`
 
 
 
