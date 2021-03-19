@@ -131,6 +131,20 @@ I started and enabled the `php` Fast Process Manager
 `sudo systemctl enable php-fpm`
 
 
+In order to instruct SElinux to allow Apache execute `php` via `php-fpm` i ran the following
+
+`sudo setsebool -P httpd_execmem 1`
+
+Then ,i restarted Apache
+`sudo systemctl restart httpd`
+
+
+Installation of Wordpress
+
+I created a folder named wordpress
+
+`sudo mkdir -p wordpress`
+
 
 
 
