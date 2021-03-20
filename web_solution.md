@@ -145,8 +145,13 @@ I created a folder named wordpress
 
 `sudo mkdir -p wordpress`
 
+I downloaded and extracted into the `wordpress` folder
 
+`sudo wget http://wordpress.org/latest.tar.gz`
 
+I extracted the wordpress that was downloaded
+
+`sudo tar xzvf latest.tar.gz`
 
 Credits
 
