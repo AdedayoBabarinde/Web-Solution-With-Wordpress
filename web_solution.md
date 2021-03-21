@@ -135,8 +135,15 @@ In order to instruct SElinux to allow Apache execute `php` via `php-fpm` i ran t
 
 `sudo setsebool -P httpd_execmem 1`
 
-Then ,i restarted Apache
+Then ,i restarted Apache and checked the status of  `Apache`
 `sudo systemctl restart httpd`
+`sudo systemctl status httpd`
+
+![](https://github.com/drazen-dee28/Web-Solution-With-Wordpress/blob/main/img/apachestatus.jpg)
+
+I checked if apache is working in a browser using public IP of the webserver.
+
+![](https://github.com/drazen-dee28/Web-Solution-With-Wordpress/blob/main/img/apachetest.jpg)
 
 
 Installation of Wordpress
@@ -153,5 +160,24 @@ I extracted the wordpress that was downloaded
 
 `sudo tar xzvf latest.tar.gz`
 
-Credits
+In the same folder, i created the config file `wp-config.php` and copied the contents of `wp-config-sample.php`
+into it as follows
+
+`sudo cp -R wp-config-sample.php wp-config.php`
+
+
+
+I moved back in the main wordpress directory ,then copied the contents of the wordpress directory into
+`/var/www/html`
+
+`sudo cp -R wordpress/. /var/www/html/`
+
+
+ Credits:
+
+ [PHP](https://www.tecmint.com/install-lamp-on-centos-8/)
+ 
+ [WORDPRESS]https://linuxconfig.org/install-wordpress-on-redhat-8
+
+ [Darey.io](https://learning.darey.io/)
 
